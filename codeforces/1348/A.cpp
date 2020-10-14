@@ -5,13 +5,21 @@ using namespace std;
 int main()
 {
 
-   int tests, n, x;
+   int tests;
    cin>>tests;
+   int x = 0;
    while (tests--)
    {
+       int n;
        cin>>n;
-       x = (n / 2) + 1;
-       cout<<pow(2,x) - 2<<endl;
+       x = pow(2,n);
+       for(int i = n-1; i >= (n/2); --i){
+        x -= pow(2,i);
+       }
+       for(int i = 1; i < (n/2); ++i){
+        x += pow(2,i);
+       }
+       cout<<x<<endl;
    }
 
 }
