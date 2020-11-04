@@ -19,12 +19,28 @@ int main()
     cin>>t;
     while (t--)
     {
-        int n;     
-        cin>>n;
-        cout<<2<<endl<<n-1<<" "<<n<<endl;
-        for (int i = n; i > 2; --i)
+        int n;     cin>>n;
+        int a = n - 2, b = n;
+        cout<<2<<endl;
+        if (n == 2) cout<<2<<" "<<1<<endl;
+        else
         {
-            cout<<i-2<<" "<<i<<endl;
+            cout<<a<<" "<<b<<endl<<n - 1<<" "<<n - 1<<endl;
+            if (n < 4) continue;
+            else
+            {
+                int z = n - 3;
+                for (int i = 0; i < z; ++i)
+                {
+                    a--;
+                    b--;
+                    cout<<a<<" "<<b<<endl;
+                }
+            }
         }
+
+
     }
+
+
 }
