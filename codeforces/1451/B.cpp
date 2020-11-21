@@ -31,25 +31,32 @@ int main()
     //freopen("contest.in","r", stdin);
     //freopen("output.txt", "w", stdout);
     //transform(su.begin(), su.end(), su.begin(), ::toupper);
-    
-    int t, n, q;
+
+    int t, n, q, l, r;
     string s;
     cin>>t;
     while (t--)
     {
         cin>>n>>q>>s;
-        s = '*' + s;
+        int x,y;
         while (q--)
         {
-            int l, r;   cin>>l>>r;
-            bool succ = 0;
-            for (int i = 1; i < l; i++)
-                if (s[i] == s[l])
-                    succ = 1;
-            for (int i = r+1; i <= n; i++) 
-                if (s[i] == s[r]) 
-                    succ = 1;
-            cout<<(succ ? "YES" : "NO")<<endl;
+            cin>>l>>r;
+            x = s.find_first_of (s[l-1]);
+            y = s.find_last_of (s[r-1]);
+            if(x == l-1 && y == r-1)
+    		{
+    			cout<<"NO"<<endl;
+			}
+			else
+			{
+				cout<<"YES"<<endl;
+			}
         }
     }
+    /*string s = ("001000");
+    int l = 1, r = 3;
+    int x = s.find_first_of(s[l-1]);
+    int y = s.find_last_of(s[r-1]);
+    cout<<x<<" "<<y;*/
 }
