@@ -45,7 +45,7 @@ int main()
 	bool flag = 0;
 	for (int i = 0; i < n - 1; ++i)
 	{
-		if (v[i].first <= v[i+1].first)
+		if (v[i].first != v[i+1].first)
 		{
 			if (v[i].second > v[i+1].second)
 			{
