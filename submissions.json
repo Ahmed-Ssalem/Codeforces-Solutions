@@ -322,5 +322,21 @@
       "*1000"
     ],
     "timestamp": "Dec/22/2021 19:19"
+  },
+  "CF99791630": {
+    "contest_id": 977,
+    "language": "GNU C++11",
+    "path": "codeforces\\977\\C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Less or Equal",
+    "problem_url": "https://codeforces.com/contest/977/problem/C",
+    "submission_id": "CF99791630",
+    "submission_url": "https://codeforces.com/contest/977/submission/99791630",
+    "tags": [
+      "sortings",
+      "*1200"
+    ],
+    "timestamp": "Nov/28/2020 14:25"
   }
 }
