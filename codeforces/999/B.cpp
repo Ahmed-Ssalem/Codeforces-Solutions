@@ -40,15 +40,25 @@ int main()
 
 	int n;  cin>>n;
 	string s;  cin>>s;
-	for (int i = 2; i <= n; ++i)
+	vector <int> v;
+	v.pb(n);
+	for (int i = 2; i <= sqrt(n); ++i)
 	{
 		if (n % i == 0)
 		{
-			for(int j = 0 ; j < i / 2 ; j++)
+			if (n / i == i) v.pb(i);
+			else
 			{
-				swap (s[j], s[i - j - 1]);
+				v.pb(i);
+				v.pb(n/i);
 			}
 		}
+	}
+	sort(all(v));
+	int len = v.size();
+	for (int i = 0; i < len; ++i)
+	{
+		reverse(s.begin(), s.begin() + v[i]);
 	}
 	cout<<s;
 	return 0;
