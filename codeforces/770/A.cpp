@@ -38,11 +38,27 @@ int main()
 		cout<<*it<<" ";*/
 
 	int n, k;  cin>>n>>k;
-	forn (i, n)
+	string s = "abcdefghijklmnopqrstuvwxyz";
+	for (int i = 0; i < k; ++i)
 	{
-		char c='a'+i%k;
-	    cout<<c;
+		cout<<s[i];
 	}
+	int x = abs(n-k);
+	while (x)
+	{
+		if (x)
+		{
+			cout<<'a';
+			--x;
+		}
+		if (x)
+		{
+			cout<<'b';
+			--x;
+		}
+	}
+
+
 
 	return 0;
 }
