@@ -26,6 +26,38 @@ void FastInputOutput() {
 	cout.tie(0);
 }
 
+vector<int> count_prime_in_range_sieve(int n) {
+
+	vector<bool> isprime(n + 1, true);
+	vector<int> notprimes;
+	isprime[0] = isprime[1] = -1;
+	for (int i = 2; i * i <= n; ++i) {
+		if (isprime[i]) {
+			for (int j = i * 2; j <= n; j += i)
+				isprime[j] = 0;
+		}
+	}
+	for (int i = 0; i < (int) isprime.size(); ++i) {
+		if (!isprime[i])
+			notprimes.push_back(i);
+	}
+	return notprimes;
+}
+
+bool isPrime(int n) {
+	if (n == 2)
+		return true;
+
+	if (n < 2 || n % 2 == 0)
+		return false;
+
+	for (int i = 3; i * i <= n; i += 2) {
+		if (n % i == 0)
+			return false;
+	}
+	return true;
+}
+
 int main() {
 	//cout << fixed << setprecision(10);
 	//freopen("contest.in","r", stdin);
@@ -38,10 +70,15 @@ int main() {
 
 	int n;
 	cin >> n;
-	if (n % 2 == 0)
-		cout << n - 8 << " " << 8;
-	else
-		cout << n - 9 << " " << 9;
+	vector<int> notprimes = count_prime_in_range_sieve(10000000);
+	for (int i = 0; i < (int) notprimes.size(); ++i) {
+		int res = n - notprimes[i];
+		if (!isPrime(res)) {
+			cout << notprimes[i] << " " << res;
+
+			break;
+		}
+	}
 
 	return 0;
 }
